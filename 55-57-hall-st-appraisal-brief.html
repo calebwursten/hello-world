@@ -1,0 +1,580 @@
+<title>Hall Street Appraisal Brief</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap">
+<style>
+  :root {
+    --paper:      #eef1f0;
+    --sheet:      #ffffff;
+    --sheet-alt:  #f5f8f7;
+    --ink:        #151e1c;
+    --ink-soft:   #3d4a47;
+    --muted:      #6d7d79;
+    --rule:       #cfd8d6;
+    --rule-firm:  #9aaba7;
+    --teal:       #2e5a55;
+    --teal-soft:  #e3ecea;
+    --brick:      #7c4a32;
+    --brick-soft: #f4e8e1;
+    --shadow:     0 1px 2px rgba(21,30,28,.06), 0 10px 30px rgba(21,30,28,.07);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper:      #0f1514;
+      --sheet:      #19211f;
+      --sheet-alt:  #1e2725;
+      --ink:        #e7edeb;
+      --ink-soft:   #b8c4c1;
+      --muted:      #8b9b97;
+      --rule:       #2f3b38;
+      --rule-firm:  #4a5a55;
+      --teal:       #7fb5ac;
+      --teal-soft:  #1d2c29;
+      --brick:      #d09b7d;
+      --brick-soft: #2b201a;
+      --shadow:     0 1px 2px rgba(0,0,0,.45), 0 10px 30px rgba(0,0,0,.35);
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper:      #0f1514;
+    --sheet:      #19211f;
+    --sheet-alt:  #1e2725;
+    --ink:        #e7edeb;
+    --ink-soft:   #b8c4c1;
+    --muted:      #8b9b97;
+    --rule:       #2f3b38;
+    --rule-firm:  #4a5a55;
+    --teal:       #7fb5ac;
+    --teal-soft:  #1d2c29;
+    --brick:      #d09b7d;
+    --brick-soft: #2b201a;
+    --shadow:     0 1px 2px rgba(0,0,0,.45), 0 10px 30px rgba(0,0,0,.35);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 13px;
+    line-height: 1.5;
+    padding: 28px 20px 56px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .sheet {
+    max-width: 860px;
+    margin: 0 auto;
+    background: var(--sheet);
+    border: 1px solid var(--rule);
+    box-shadow: var(--shadow);
+    padding: 40px 44px 36px;
+  }
+
+  /* ---------- masthead ---------- */
+  .masthead {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px 32px;
+    align-items: flex-end;
+    justify-content: space-between;
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 16px;
+  }
+  .eyebrow {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: .13em;
+    text-transform: uppercase;
+    color: var(--teal);
+  }
+  h1 {
+    font-family: Newsreader, Georgia, "Times New Roman", serif;
+    font-size: 38px;
+    font-weight: 500;
+    line-height: 1.05;
+    letter-spacing: -.01em;
+    margin: 6px 0 5px;
+    text-wrap: balance;
+  }
+  .subline {
+    font-size: 13.5px;
+    color: var(--ink-soft);
+  }
+  .masthead-meta {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 11px;
+    line-height: 1.75;
+    color: var(--muted);
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+  }
+  .masthead-meta b { color: var(--ink-soft); font-weight: 500; }
+
+  /* ---------- sections ---------- */
+  section { margin-top: 26px; }
+  h2 {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin: 0 0 10px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--rule-firm);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+  }
+  h2 span {
+    font-weight: 400;
+    letter-spacing: .04em;
+    text-transform: none;
+    color: var(--muted);
+    font-size: 10.5px;
+  }
+
+  /* ---------- fact strip ---------- */
+  .facts {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+  }
+  .fact { background: var(--sheet); padding: 9px 12px; }
+  .fact dt {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 9.5px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 3px;
+  }
+  .fact dd {
+    margin: 0;
+    font-size: 12.5px;
+    color: var(--ink);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ---------- tables ---------- */
+  .scroll { overflow-x: auto; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-variant-numeric: tabular-nums;
+  }
+  th, td {
+    text-align: left;
+    padding: 6px 10px;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: baseline;
+  }
+  thead th {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 9.5px;
+    font-weight: 500;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    border-bottom: 1px solid var(--rule-firm);
+    white-space: nowrap;
+  }
+  td.n, th.n { text-align: right; font-family: "IBM Plex Mono", ui-monospace, monospace; white-space: nowrap; }
+  td.n { font-size: 12px; }
+  td.unit {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-weight: 600;
+    font-size: 12px;
+    white-space: nowrap;
+  }
+  .note-cell { color: var(--ink-soft); font-size: 12px; }
+  tbody tr:last-child td { border-bottom: none; }
+  tr.total td {
+    border-top: 1px solid var(--rule-firm);
+    border-bottom: none;
+    font-weight: 600;
+    background: var(--sheet-alt);
+  }
+  tr.subject td {
+    background: var(--brick-soft);
+    color: var(--brick);
+    border-bottom: none;
+  }
+  tr.subject td.unit { font-weight: 600; }
+  tr.subject td.unit, tr.subject td.n { color: var(--brick); }
+  tr.rule-above td { border-top: 1px solid var(--rule-firm); }
+  .sub { color: var(--muted); font-size: 11px; }
+  .indent { padding-left: 24px; color: var(--ink-soft); }
+
+  /* ---------- two-up ---------- */
+  .two-up {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 26px;
+  }
+
+  /* ---------- conclusion ---------- */
+  .conclusion {
+    margin-top: 26px;
+    border: 1px solid var(--brick);
+    background: var(--brick-soft);
+    padding: 16px 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+  .conclusion .eyebrow { color: var(--brick); }
+  .conc-val {
+    font-family: Newsreader, Georgia, serif;
+    font-size: 25px;
+    font-weight: 500;
+    color: var(--brick);
+    line-height: 1.15;
+    margin-top: 4px;
+    font-variant-numeric: tabular-nums;
+  }
+  .conc-note { font-size: 11.5px; color: var(--ink-soft); margin-top: 3px; }
+
+  /* ---------- notes ---------- */
+  ul.notes { margin: 0; padding-left: 16px; }
+  ul.notes li { margin-bottom: 4px; color: var(--ink-soft); font-size: 12.5px; }
+  ul.notes li b { color: var(--ink); font-weight: 600; }
+  .flag {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 9px;
+    letter-spacing: .07em;
+    text-transform: uppercase;
+    color: var(--brick);
+    border: 1px solid var(--brick);
+    border-radius: 2px;
+    padding: 1px 4px;
+    white-space: nowrap;
+  }
+
+  footer {
+    margin-top: 28px;
+    padding-top: 12px;
+    border-top: 1px solid var(--rule);
+    font-size: 11px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  @media (max-width: 720px) {
+    .sheet { padding: 26px 20px; }
+    h1 { font-size: 29px; }
+    .masthead-meta { text-align: left; }
+    .facts { grid-template-columns: repeat(2, 1fr); }
+    .two-up, .conclusion { grid-template-columns: 1fr; gap: 18px; }
+  }
+
+  @media print {
+    @page { size: letter; margin: .45in; }
+    body { background: #fff; padding: 0; font-size: 9.4pt; }
+    .sheet { border: none; box-shadow: none; padding: 0; max-width: none; }
+    section { margin-top: 15px; page-break-inside: avoid; }
+    h1 { font-size: 27pt; }
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+</style>
+
+<div class="sheet">
+
+  <header class="masthead">
+    <div>
+      <div class="eyebrow">Appraisal Support Brief &middot; Owner-Supplied Data</div>
+      <h1>55&ndash;57 Hall Street</h1>
+      <div class="subline">Four-unit multifamily &middot; North Adams, Massachusetts</div>
+    </div>
+    <div class="masthead-meta">
+      Prepared&nbsp;&nbsp;<b>September 3, 2026</b><br>
+      Purpose&nbsp;&nbsp;<b>Refinance &middot; 30-yr fixed</b><br>
+      Owner&nbsp;&nbsp;<b>Caleb Wursten</b><br>
+      Source&nbsp;&nbsp;<b>Owner operating records</b>
+    </div>
+  </header>
+
+  <section>
+    <h2>Property Summary</h2>
+    <dl class="facts">
+      <div class="fact"><dt>Units</dt><dd>4 &mdash; 55A, 55B, 57A, 57B</dd></div>
+      <div class="fact"><dt>Purchase price</dt><dd>$211,000</dd></div>
+      <div class="fact"><dt>Capital invested 2026</dt><dd>$45,405</dd></div>
+      <div class="fact"><dt>All-in basis</dt><dd>$276,405</dd></div>
+      <div class="fact"><dt>Gross living area</dt><dd class="sub">To be confirmed</dd></div>
+      <div class="fact"><dt>Heat</dt><dd>4 &times; gas forced hot water</dd></div>
+      <div class="fact"><dt>Occupancy</dt><dd>4 of 4 &mdash; 100%</dd></div>
+      <div class="fact"><dt>Leases</dt><dd>Month-to-month, all units</dd></div>
+    </dl>
+  </section>
+
+  <section>
+    <h2>Rent Roll <span>Contract rent in place vs. post-renovation target</span></h2>
+    <div class="scroll">
+      <table>
+        <thead>
+          <tr>
+            <th>Unit</th>
+            <th>Tenancy</th>
+            <th class="n">In place</th>
+            <th class="n">Stabilized</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="unit">55A</td>
+            <td class="note-cell">Market tenant, 2 bd; tenant pays own utilities. Renovated August 2026 ($10,472).</td>
+            <td class="n">$900</td>
+            <td class="n">$1,500</td>
+          </tr>
+          <tr>
+            <td class="unit">55B</td>
+            <td class="note-cell">Legacy tenant, 2 bd; long-tenured and materially below market.</td>
+            <td class="n">$650</td>
+            <td class="n">$1,500</td>
+          </tr>
+          <tr>
+            <td class="unit">57A</td>
+            <td class="note-cell">Section 8 &mdash; Berkshire Housing pays 100% of contract rent.</td>
+            <td class="n">$900</td>
+            <td class="n">$1,500</td>
+          </tr>
+          <tr>
+            <td class="unit">57B</td>
+            <td class="note-cell">Refreshed 2025; two tenants placed, professionally managed.</td>
+            <td class="n">$985</td>
+            <td class="n">$1,000</td>
+          </tr>
+          <tr class="total">
+            <td class="unit">Total</td>
+            <td class="note-cell">Monthly / annualized</td>
+            <td class="n">$3,435<br><span class="sub">$41,220 / yr</span></td>
+            <td class="n">$5,500<br><span class="sub">$66,000 / yr</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>Operating Statement <span>Annualized; debt service excluded</span></h2>
+    <div class="scroll">
+      <table>
+        <thead>
+          <tr>
+            <th>Line item</th>
+            <th class="n">As in place</th>
+            <th class="n">As stabilized</th>
+            <th>Basis</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Gross scheduled rent</td>
+            <td class="n">$41,220</td>
+            <td class="n">$66,000</td>
+            <td class="note-cell">Rent roll above</td>
+          </tr>
+          <tr>
+            <td>Vacancy &amp; collection loss</td>
+            <td class="n">&mdash;</td>
+            <td class="n">&mdash;</td>
+            <td class="note-cell">None applied <span class="flag">see note 1</span></td>
+          </tr>
+          <tr class="rule-above">
+            <td><b>Effective gross income</b></td>
+            <td class="n"><b>$41,220</b></td>
+            <td class="n"><b>$66,000</b></td>
+            <td class="note-cell"></td>
+          </tr>
+          <tr><td class="indent">Real estate taxes</td><td class="n">$4,024</td><td class="n">$4,024</td><td class="note-cell">City of North Adams</td></tr>
+          <tr><td class="indent">Insurance</td><td class="n">$2,200</td><td class="n">$2,200</td><td class="note-cell">Carrier premium</td></tr>
+          <tr><td class="indent">Utilities &mdash; owner paid</td><td class="n">$5,420</td><td class="n">$5,420</td><td class="note-cell">Water/sewer, common electric, trash, lawn, snow</td></tr>
+          <tr><td class="indent">Maintenance</td><td class="n">$2,400</td><td class="n">$2,400</td><td class="note-cell">$50 / unit / month</td></tr>
+          <tr><td class="indent">Replacement reserve</td><td class="n">$7,155</td><td class="n">$7,155</td><td class="note-cell">Component-life schedule, 12 items</td></tr>
+          <tr class="rule-above">
+            <td>Total operating expenses</td>
+            <td class="n">$21,199 <span class="sub">51.4%</span></td>
+            <td class="n">$21,199 <span class="sub">32.1%</span></td>
+            <td class="note-cell">Ratio to effective gross income</td>
+          </tr>
+          <tr class="total">
+            <td>Net operating income</td>
+            <td class="n">$20,021</td>
+            <td class="n">$44,801</td>
+            <td class="note-cell">Before debt service</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>Comparable Sales <span>Closed 2025 &middot; North Adams multifamily</span></h2>
+    <div class="scroll">
+      <table>
+        <thead>
+          <tr>
+            <th>Address</th>
+            <th class="n">Sale price</th>
+            <th class="n">Sq ft</th>
+            <th class="n">$ / sq ft</th>
+            <th>Relationship to subject</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="unit">14&ndash;16 Hall St</td>
+            <td class="n">$330,000</td>
+            <td class="n">3,245</td>
+            <td class="n">$101.69</td>
+            <td class="note-cell">Same street, multifamily &mdash; closest locational match</td>
+          </tr>
+          <tr>
+            <td class="unit">132&ndash;134 Crest St</td>
+            <td class="n">$286,000</td>
+            <td class="n">2,764</td>
+            <td class="n">$103.47</td>
+            <td class="note-cell">Multifamily, comparable vintage and neighborhood</td>
+          </tr>
+          <tr>
+            <td class="unit">96 Cherry St</td>
+            <td class="n">$239,500</td>
+            <td class="n">2,624</td>
+            <td class="n">$91.27</td>
+            <td class="note-cell">Smallest of the set; low end of the range</td>
+          </tr>
+          <tr class="total">
+            <td class="unit">Mean</td>
+            <td class="n">$285,167</td>
+            <td class="n">2,878</td>
+            <td class="n">$98.81</td>
+            <td class="note-cell">Range $91.27 &ndash; $103.47 / sq ft</td>
+          </tr>
+          <tr class="subject">
+            <td class="unit">55&ndash;57 Hall St</td>
+            <td class="n">&mdash;</td>
+            <td class="n">TBC</td>
+            <td class="n">&mdash;</td>
+            <td>Subject &mdash; four units vs. comparables; GLA to be confirmed</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <div class="two-up">
+    <section>
+      <h2>Income Approach <span>NOI &divide; cap rate</span></h2>
+      <div class="scroll">
+        <table>
+          <thead>
+            <tr>
+              <th class="n">Cap rate</th>
+              <th class="n">As in place</th>
+              <th class="n">As stabilized</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="n">8%</td><td class="n">$250,258</td><td class="n">$560,008</td></tr>
+            <tr><td class="n">9%</td><td class="n">$222,452</td><td class="n">$497,785</td></tr>
+            <tr><td class="n">10%</td><td class="n">$200,207</td><td class="n">$448,007</td></tr>
+            <tr><td class="n">11%</td><td class="n">$182,006</td><td class="n">$407,279</td></tr>
+            <tr><td class="n">12%</td><td class="n">$166,839</td><td class="n">$373,339</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="sub" style="margin:8px 0 0;">Owner&rsquo;s internal model carries the property at <b>$373,339</b> &mdash; stabilized NOI at a 12% capitalization rate.</p>
+    </section>
+
+    <section>
+      <h2>Sales Comparison <span>Comp mean &times; subject GLA</span></h2>
+      <div class="scroll">
+        <table>
+          <thead>
+            <tr>
+              <th class="n">If GLA is</th>
+              <th class="n">At $98.81 / sq ft</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="n">2,800 sq ft</td><td class="n">$276,678</td></tr>
+            <tr><td class="n">3,000 sq ft</td><td class="n">$296,441</td></tr>
+            <tr><td class="n">3,245 sq ft</td><td class="n">$320,650</td></tr>
+            <tr><td class="n">3,500 sq ft</td><td class="n">$345,848</td></tr>
+            <tr><td class="n">4,000 sq ft</td><td class="n">$395,255</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="sub" style="margin:8px 0 0;">Subject GLA is not yet measured. The comparables are three-address buildings; the subject carries a fourth unit, which the sales-comparison grid does not capture.</p>
+    </section>
+  </div>
+
+  <div class="conclusion">
+    <div>
+      <div class="eyebrow">All-in basis</div>
+      <div class="conc-val">$276,405</div>
+      <div class="conc-note">$211,000 purchase + $20,000 acquisition and initial costs + $45,405 capital improvements.</div>
+    </div>
+    <div>
+      <div class="eyebrow">Indicated &mdash; as in place</div>
+      <div class="conc-val">$200,000&ndash;$250,000</div>
+      <div class="conc-note">Income approach on contract rents, 8&ndash;10% cap. Below the comp mean, reflecting 55B at $650.</div>
+    </div>
+    <div>
+      <div class="eyebrow">Indicated &mdash; as stabilized</div>
+      <div class="conc-val">$373,000&ndash;$450,000</div>
+      <div class="conc-note">Stabilized NOI at 10&ndash;12% cap; brackets the $/sq ft indication at 3,800&ndash;4,000 sq ft.</div>
+    </div>
+  </div>
+
+  <div class="two-up">
+    <section>
+      <h2>Capital Improvements <span>Feb&ndash;Sep 2026 &middot; $45,405</span></h2>
+      <div class="scroll">
+        <table>
+          <tbody>
+            <tr><td>55A full unit renovation</td><td class="n">$10,472</td></tr>
+            <tr><td>Foundation improvements</td><td class="n">$6,962</td></tr>
+            <tr><td>Electrical</td><td class="n">$5,000</td></tr>
+            <tr><td>Painting</td><td class="n">$5,924</td></tr>
+            <tr><td>Carpentry</td><td class="n">$3,489</td></tr>
+            <tr><td>Flooring</td><td class="n">$2,175</td></tr>
+            <tr><td>Basement vapor barrier &amp; gravel</td><td class="n">$2,095</td></tr>
+            <tr><td>Window replacement</td><td class="n">$1,975</td></tr>
+            <tr><td>Laundry machines</td><td class="n">$1,040</td></tr>
+            <tr><td>Chimney removal</td><td class="n">$1,024</td></tr>
+            <tr><td>Plumbing</td><td class="n">$754</td></tr>
+            <tr><td>Basement storage, cleanup, cameras, misc.</td><td class="n">$4,495</td></tr>
+            <tr class="total"><td>Total</td><td class="n">$45,405</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <h2>Condition &amp; Disclosure</h2>
+      <ul class="notes">
+        <li><b>Mechanicals.</b> Four gas-fired forced hot-water boilers, approximately 10 years old; two rebuilt at $2,500 each. Plumber advises no replacement needed.</li>
+        <li><b>Domestic hot water.</b> Gas units functional; replacement anticipated.</li>
+        <li><b>Lead.</b> Three of four units hold lead certificates; the fourth is under inspection.</li>
+        <li><b>Deferred.</b> Front wall displaced approximately 5&Prime; at the top plate; chimney repointing; attic ventilation, to be addressed with roof.</li>
+        <li><b>Resolved 2026.</b> Basement moisture (venting removed, vapor barrier installed), knob-and-tube removed from service, underground oil tank removed.</li>
+        <li><b>Title.</b> Left-hand driveway ownership unconfirmed &mdash; may be held by the abutter.</li>
+      </ul>
+    </section>
+  </div>
+
+  <footer>
+    <b>Note 1 &mdash; vacancy.</b> The owner&rsquo;s model applies no vacancy or collection loss. All four units are occupied and 57A is paid in full by Berkshire Housing, but the appraiser should apply a market vacancy factor. At 5%, in-place NOI falls to $17,960 and stabilized NOI to $41,501.<br>
+    <b>To be confirmed on inspection:</b> gross living area, unit-level bed and bath counts, comparable sale dates and unit counts, lot area and zoning, and the fourth lead certificate.<br>
+    <b>Basis of preparation:</b> figures are owner-maintained operating records as of September 3, 2026. Stabilized rents are the owner&rsquo;s post-renovation targets and are not contracted. This brief is offered as source data for an independent appraisal; it is not an opinion of value.
+  </footer>
+
+</div>
