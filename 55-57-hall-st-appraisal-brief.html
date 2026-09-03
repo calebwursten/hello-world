@@ -283,11 +283,33 @@
   }
 
   @media print {
-    @page { size: letter; margin: .45in; }
-    body { background: #fff; padding: 0; font-size: 9.4pt; }
+    @page { size: letter; margin: .38in; }
+    body { background: #fff; padding: 0; font-size: 7.4pt; line-height: 1.34; }
     .sheet { border: none; box-shadow: none; padding: 0; max-width: none; }
-    section { margin-top: 15px; page-break-inside: avoid; }
-    h1 { font-size: 27pt; }
+    section { margin-top: 9px; page-break-inside: avoid; }
+    h1 { font-size: 19pt; margin: 3px 0 2px; }
+    .subline { font-size: 8.4pt; }
+    .eyebrow, .masthead-meta { font-size: 6.6pt; }
+    .masthead-meta { line-height: 1.5; }
+    .masthead { padding-bottom: 8px; }
+    h2 { font-size: 6.8pt; margin-bottom: 5px; padding-bottom: 3px; }
+    h2 span { font-size: 6.8pt; }
+    .fact { padding: 4px 7px; }
+    .fact dt { font-size: 6.2pt; margin-bottom: 1px; }
+    .fact dd { font-size: 7.6pt; }
+    th, td { padding: 2.1px 6px; }
+    thead th { font-size: 6.2pt; }
+    td.n, .note-cell { font-size: 7.2pt; }
+    td.unit { font-size: 7.2pt; }
+    .sub { font-size: 6.6pt; }
+    .indent { padding-left: 14px; }
+    .two-up { gap: 16px; }
+    .conclusion { margin-top: 10px; padding: 9px 13px; gap: 8px 14px; }
+    .conc-val { font-size: 15pt; margin-top: 2px; }
+    .conc-note, .conc-foot { font-size: 6.9pt; }
+    .conc-foot { padding-top: 7px; }
+    ul.notes li { font-size: 7.2pt; margin-bottom: 2px; }
+    section p.sub { margin-top: 5px !important; }
     * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   }
 </style>
