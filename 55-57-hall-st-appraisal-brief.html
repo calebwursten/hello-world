@@ -136,6 +136,7 @@
     text-transform: none;
     color: var(--muted);
     font-size: 10.5px;
+    text-align: right;
   }
 
   /* ---------- fact strip ---------- */
@@ -207,7 +208,6 @@
     border-bottom: none;
   }
   tr.subject td.unit { font-weight: 600; }
-  tr.subject td.unit, tr.subject td.n { color: var(--brick); }
   tr.rule-above td { border-top: 1px solid var(--rule-firm); }
   .sub { color: var(--muted); font-size: 11px; }
   .indent { padding-left: 24px; color: var(--ink-soft); }
@@ -227,7 +227,7 @@
     padding: 16px 20px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 18px;
+    gap: 16px 18px;
   }
   .conclusion .eyebrow { color: var(--brick); }
   .conc-val {
@@ -240,6 +240,14 @@
     font-variant-numeric: tabular-nums;
   }
   .conc-note { font-size: 11.5px; color: var(--ink-soft); margin-top: 3px; }
+  .conc-foot {
+    grid-column: 1 / -1;
+    border-top: 1px solid var(--brick);
+    padding-top: 11px;
+    font-size: 11.5px;
+    color: var(--ink-soft);
+  }
+  .conc-foot b { color: var(--brick); }
 
   /* ---------- notes ---------- */
   ul.notes { margin: 0; padding-left: 16px; }
@@ -304,58 +312,64 @@
     <h2>Property Summary</h2>
     <dl class="facts">
       <div class="fact"><dt>Units</dt><dd>4 &mdash; 55A, 55B, 57A, 57B</dd></div>
-      <div class="fact"><dt>Purchase price</dt><dd>$211,000</dd></div>
-      <div class="fact"><dt>Capital invested 2026</dt><dd>$45,405</dd></div>
-      <div class="fact"><dt>All-in basis</dt><dd>$276,405</dd></div>
-      <div class="fact"><dt>Gross living area</dt><dd class="sub">To be confirmed</dd></div>
+      <div class="fact"><dt>Gross living area</dt><dd>3,942 sq ft</dd></div>
+      <div class="fact"><dt>Purchase price</dt><dd>$231,000</dd></div>
+      <div class="fact"><dt>Capital invested 2026</dt><dd>$90,809</dd></div>
+      <div class="fact"><dt>All-in basis</dt><dd>$321,809 &middot; <span class="sub">$81.64/sf</span></dd></div>
+      <div class="fact"><dt>Renovation status</dt><dd>Complete</dd></div>
       <div class="fact"><dt>Heat</dt><dd>4 &times; gas forced hot water</dd></div>
       <div class="fact"><dt>Occupancy</dt><dd>4 of 4 &mdash; 100%</dd></div>
-      <div class="fact"><dt>Leases</dt><dd>Month-to-month, all units</dd></div>
     </dl>
   </section>
 
   <section>
-    <h2>Rent Roll <span>Contract rent in place vs. post-renovation target</span></h2>
+    <h2>Rent Roll <span>Renovation complete &middot; all units at market</span></h2>
     <div class="scroll">
       <table>
         <thead>
           <tr>
             <th>Unit</th>
-            <th>Tenancy</th>
-            <th class="n">In place</th>
-            <th class="n">Stabilized</th>
+            <th>Condition &amp; tenancy</th>
+            <th>Lease</th>
+            <th class="n">Monthly</th>
+            <th class="n">Annual</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td class="unit">55A</td>
-            <td class="note-cell">Market tenant, 2 bd; tenant pays own utilities. Renovated August 2026 ($10,472).</td>
-            <td class="n">$900</td>
+            <td class="note-cell">Full unit renovation completed August 2026 &mdash; $20,944</td>
+            <td class="note-cell"><span class="sub">Confirm</span></td>
             <td class="n">$1,500</td>
+            <td class="n">$18,000</td>
           </tr>
           <tr>
             <td class="unit">55B</td>
-            <td class="note-cell">Legacy tenant, 2 bd; long-tenured and materially below market.</td>
-            <td class="n">$650</td>
+            <td class="note-cell">Full unit renovation completed 2026 &mdash; $13,099</td>
+            <td class="note-cell"><span class="sub">Confirm</span></td>
             <td class="n">$1,500</td>
+            <td class="n">$18,000</td>
           </tr>
           <tr>
             <td class="unit">57A</td>
-            <td class="note-cell">Section 8 &mdash; Berkshire Housing pays 100% of contract rent.</td>
-            <td class="n">$900</td>
+            <td class="note-cell">Full unit renovation completed 2026 &mdash; $13,099</td>
+            <td class="note-cell"><span class="sub">Confirm</span></td>
             <td class="n">$1,500</td>
+            <td class="n">$18,000</td>
           </tr>
           <tr>
             <td class="unit">57B</td>
-            <td class="note-cell">Refreshed 2025; two tenants placed, professionally managed.</td>
-            <td class="n">$985</td>
-            <td class="n">$1,000</td>
+            <td class="note-cell">Refreshed 2025; two tenants placed, professionally managed</td>
+            <td class="note-cell"><span class="sub">Confirm</span></td>
+            <td class="n">$1,500</td>
+            <td class="n">$18,000</td>
           </tr>
           <tr class="total">
             <td class="unit">Total</td>
-            <td class="note-cell">Monthly / annualized</td>
-            <td class="n">$3,435<br><span class="sub">$41,220 / yr</span></td>
-            <td class="n">$5,500<br><span class="sub">$66,000 / yr</span></td>
+            <td class="note-cell">Four units at market rent <span class="flag">see note 1</span></td>
+            <td class="note-cell"></td>
+            <td class="n">$6,000</td>
+            <td class="n">$72,000</td>
           </tr>
         </tbody>
       </table>
@@ -363,34 +377,34 @@
   </section>
 
   <section>
-    <h2>Operating Statement <span>Annualized; debt service excluded</span></h2>
+    <h2>Operating Statement <span>Annualized &middot; debt service excluded</span></h2>
     <div class="scroll">
       <table>
         <thead>
           <tr>
             <th>Line item</th>
-            <th class="n">As in place</th>
-            <th class="n">As stabilized</th>
-            <th>Basis</th>
+            <th class="n">Owner basis</th>
+            <th class="n">Adjusted</th>
+            <th>Basis of adjustment</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td>Gross scheduled rent</td>
-            <td class="n">$41,220</td>
-            <td class="n">$66,000</td>
+            <td class="n">$72,000</td>
+            <td class="n">$72,000</td>
             <td class="note-cell">Rent roll above</td>
           </tr>
           <tr>
             <td>Vacancy &amp; collection loss</td>
             <td class="n">&mdash;</td>
-            <td class="n">&mdash;</td>
-            <td class="note-cell">None applied <span class="flag">see note 1</span></td>
+            <td class="n">($3,600)</td>
+            <td class="note-cell">5% &mdash; none applied by owner</td>
           </tr>
           <tr class="rule-above">
             <td><b>Effective gross income</b></td>
-            <td class="n"><b>$41,220</b></td>
-            <td class="n"><b>$66,000</b></td>
+            <td class="n"><b>$72,000</b></td>
+            <td class="n"><b>$68,400</b></td>
             <td class="note-cell"></td>
           </tr>
           <tr><td class="indent">Real estate taxes</td><td class="n">$4,024</td><td class="n">$4,024</td><td class="note-cell">City of North Adams</td></tr>
@@ -398,16 +412,17 @@
           <tr><td class="indent">Utilities &mdash; owner paid</td><td class="n">$5,420</td><td class="n">$5,420</td><td class="note-cell">Water/sewer, common electric, trash, lawn, snow</td></tr>
           <tr><td class="indent">Maintenance</td><td class="n">$2,400</td><td class="n">$2,400</td><td class="note-cell">$50 / unit / month</td></tr>
           <tr><td class="indent">Replacement reserve</td><td class="n">$7,155</td><td class="n">$7,155</td><td class="note-cell">Component-life schedule, 12 items</td></tr>
+          <tr><td class="indent">Management</td><td class="n">&mdash;</td><td class="n">$4,104</td><td class="note-cell">6% of EGI &mdash; owner-managed, none charged</td></tr>
           <tr class="rule-above">
             <td>Total operating expenses</td>
-            <td class="n">$21,199 <span class="sub">51.4%</span></td>
-            <td class="n">$21,199 <span class="sub">32.1%</span></td>
+            <td class="n">$21,199 <span class="sub">29.4%</span></td>
+            <td class="n">$25,303 <span class="sub">37.0%</span></td>
             <td class="note-cell">Ratio to effective gross income</td>
           </tr>
           <tr class="total">
             <td>Net operating income</td>
-            <td class="n">$20,021</td>
-            <td class="n">$44,801</td>
+            <td class="n">$50,801</td>
+            <td class="n">$43,097</td>
             <td class="note-cell">Before debt service</td>
           </tr>
         </tbody>
@@ -425,6 +440,7 @@
             <th class="n">Sale price</th>
             <th class="n">Sq ft</th>
             <th class="n">$ / sq ft</th>
+            <th class="n">&times; 3,942 sf</th>
             <th>Relationship to subject</th>
           </tr>
         </thead>
@@ -434,20 +450,23 @@
             <td class="n">$330,000</td>
             <td class="n">3,245</td>
             <td class="n">$101.69</td>
-            <td class="note-cell">Same street, multifamily &mdash; closest locational match</td>
+            <td class="n">$400,881</td>
+            <td class="note-cell">Same street &mdash; closest locational match</td>
           </tr>
           <tr>
             <td class="unit">132&ndash;134 Crest St</td>
             <td class="n">$286,000</td>
             <td class="n">2,764</td>
             <td class="n">$103.47</td>
-            <td class="note-cell">Multifamily, comparable vintage and neighborhood</td>
+            <td class="n">$407,891</td>
+            <td class="note-cell">Comparable vintage and neighborhood</td>
           </tr>
           <tr>
             <td class="unit">96 Cherry St</td>
             <td class="n">$239,500</td>
             <td class="n">2,624</td>
             <td class="n">$91.27</td>
+            <td class="n">$359,798</td>
             <td class="note-cell">Smallest of the set; low end of the range</td>
           </tr>
           <tr class="total">
@@ -455,14 +474,16 @@
             <td class="n">$285,167</td>
             <td class="n">2,878</td>
             <td class="n">$98.81</td>
-            <td class="note-cell">Range $91.27 &ndash; $103.47 / sq ft</td>
+            <td class="n">$389,523</td>
+            <td class="note-cell">Unadjusted range $359,798 &ndash; $407,891</td>
           </tr>
           <tr class="subject">
             <td class="unit">55&ndash;57 Hall St</td>
             <td class="n">&mdash;</td>
-            <td class="n">TBC</td>
-            <td class="n">&mdash;</td>
-            <td>Subject &mdash; four units vs. comparables; GLA to be confirmed</td>
+            <td class="n">3,942</td>
+            <td class="n">$81.64</td>
+            <td class="n">$321,809</td>
+            <td>Subject at all-in basis &mdash; 21% larger than the largest comparable</td>
           </tr>
         </tbody>
       </table>
@@ -477,82 +498,78 @@
           <thead>
             <tr>
               <th class="n">Cap rate</th>
-              <th class="n">As in place</th>
-              <th class="n">As stabilized</th>
+              <th class="n">Owner NOI<br><span class="sub">$50,801</span></th>
+              <th class="n">Adjusted NOI<br><span class="sub">$43,097</span></th>
             </tr>
           </thead>
           <tbody>
-            <tr><td class="n">8%</td><td class="n">$250,258</td><td class="n">$560,008</td></tr>
-            <tr><td class="n">9%</td><td class="n">$222,452</td><td class="n">$497,785</td></tr>
-            <tr><td class="n">10%</td><td class="n">$200,207</td><td class="n">$448,007</td></tr>
-            <tr><td class="n">11%</td><td class="n">$182,006</td><td class="n">$407,279</td></tr>
-            <tr><td class="n">12%</td><td class="n">$166,839</td><td class="n">$373,339</td></tr>
+            <tr><td class="n">9%</td><td class="n">$564,452</td><td class="n">$478,852</td></tr>
+            <tr><td class="n">10%</td><td class="n">$508,007</td><td class="n">$430,967</td></tr>
+            <tr><td class="n">11%</td><td class="n">$461,824</td><td class="n">$391,788</td></tr>
+            <tr><td class="n">12%</td><td class="n">$423,339</td><td class="n">$359,222</td></tr>
+            <tr><td class="n">13%</td><td class="n">$390,774</td><td class="n">$331,513</td></tr>
           </tbody>
         </table>
       </div>
-      <p class="sub" style="margin:8px 0 0;">Owner&rsquo;s internal model carries the property at <b>$373,339</b> &mdash; stabilized NOI at a 12% capitalization rate.</p>
+      <p class="sub" style="margin:8px 0 0;">The adjusted column deducts market vacancy and a management fee &mdash; the deductions an appraiser applies whether or not the owner incurs them.</p>
     </section>
 
     <section>
-      <h2>Sales Comparison <span>Comp mean &times; subject GLA</span></h2>
+      <h2>Reconciliation <span>Where the two approaches meet</span></h2>
       <div class="scroll">
         <table>
-          <thead>
-            <tr>
-              <th class="n">If GLA is</th>
-              <th class="n">At $98.81 / sq ft</th>
-            </tr>
-          </thead>
           <tbody>
-            <tr><td class="n">2,800 sq ft</td><td class="n">$276,678</td></tr>
-            <tr><td class="n">3,000 sq ft</td><td class="n">$296,441</td></tr>
-            <tr><td class="n">3,245 sq ft</td><td class="n">$320,650</td></tr>
-            <tr><td class="n">3,500 sq ft</td><td class="n">$345,848</td></tr>
-            <tr><td class="n">4,000 sq ft</td><td class="n">$395,255</td></tr>
+            <tr><td>Sales comparison, unadjusted mean</td><td class="n">$389,523</td></tr>
+            <tr><td>Income, adjusted NOI at 11%</td><td class="n">$391,788</td></tr>
+            <tr><td>Comparable sale range</td><td class="n">$359,798&ndash;$407,891</td></tr>
+            <tr><td>All-in basis</td><td class="n">$321,809</td></tr>
+            <tr class="total"><td>Indicated value</td><td class="n">~$390,000</td></tr>
           </tbody>
         </table>
       </div>
-      <p class="sub" style="margin:8px 0 0;">Subject GLA is not yet measured. The comparables are three-address buildings; the subject carries a fourth unit, which the sales-comparison grid does not capture.</p>
+      <p class="sub" style="margin:8px 0 0;">Both approaches converge near $390,000. An 11.1% capitalization rate is what the sales comparison implies on adjusted NOI, and is the rate the subject&rsquo;s own market supports.</p>
     </section>
   </div>
 
   <div class="conclusion">
     <div>
       <div class="eyebrow">All-in basis</div>
-      <div class="conc-val">$276,405</div>
-      <div class="conc-note">$211,000 purchase + $20,000 acquisition and initial costs + $45,405 capital improvements.</div>
+      <div class="conc-val">$321,809</div>
+      <div class="conc-note">$231,000 purchase + $90,809 capital improvements. $81.64 per square foot.</div>
     </div>
     <div>
-      <div class="eyebrow">Indicated &mdash; as in place</div>
-      <div class="conc-val">$200,000&ndash;$250,000</div>
-      <div class="conc-note">Income approach on contract rents, 8&ndash;10% cap. Below the comp mean, reflecting 55B at $650.</div>
+      <div class="eyebrow">Indicated value</div>
+      <div class="conc-val">~$390,000</div>
+      <div class="conc-note">Sales comparison and income approach, reconciled. $98.90 per square foot.</div>
     </div>
     <div>
-      <div class="eyebrow">Indicated &mdash; as stabilized</div>
-      <div class="conc-val">$373,000&ndash;$450,000</div>
-      <div class="conc-note">Stabilized NOI at 10&ndash;12% cap; brackets the $/sq ft indication at 3,800&ndash;4,000 sq ft.</div>
+      <div class="eyebrow">Value created</div>
+      <div class="conc-val">$68,191</div>
+      <div class="conc-note">Indicated value over all-in basis &mdash; a 21% return on invested capital.</div>
+    </div>
+    <div class="conc-foot">
+      <b>Sensitivity.</b> On the owner&rsquo;s unadjusted NOI of $50,801, the income approach indicates $508,007 at a 10% cap &mdash; well above every 2025 comparable in this market and above what the sales-comparison approach supports at any GLA. The $390,000 conclusion is the defensible figure; it is the one both approaches reach independently.
     </div>
   </div>
 
   <div class="two-up">
     <section>
-      <h2>Capital Improvements <span>Feb&ndash;Sep 2026 &middot; $45,405</span></h2>
+      <h2>Capital Improvements <span>2026 &middot; rows rounded, ledger total $90,809.48</span></h2>
       <div class="scroll">
         <table>
           <tbody>
-            <tr><td>55A full unit renovation</td><td class="n">$10,472</td></tr>
-            <tr><td>Foundation improvements</td><td class="n">$6,962</td></tr>
-            <tr><td>Electrical</td><td class="n">$5,000</td></tr>
-            <tr><td>Painting</td><td class="n">$5,924</td></tr>
-            <tr><td>Carpentry</td><td class="n">$3,489</td></tr>
-            <tr><td>Flooring</td><td class="n">$2,175</td></tr>
-            <tr><td>Basement vapor barrier &amp; gravel</td><td class="n">$2,095</td></tr>
-            <tr><td>Window replacement</td><td class="n">$1,975</td></tr>
-            <tr><td>Laundry machines</td><td class="n">$1,040</td></tr>
-            <tr><td>Chimney removal</td><td class="n">$1,024</td></tr>
-            <tr><td>Plumbing</td><td class="n">$754</td></tr>
-            <tr><td>Basement storage, cleanup, cameras, misc.</td><td class="n">$4,495</td></tr>
-            <tr class="total"><td>Total</td><td class="n">$45,405</td></tr>
+            <tr><td>55A unit renovation</td><td class="n">$20,944</td></tr>
+            <tr><td>Foundation improvements</td><td class="n">$13,924</td></tr>
+            <tr><td>57A unit renovation</td><td class="n">$13,099</td></tr>
+            <tr><td>55B unit renovation</td><td class="n">$13,099</td></tr>
+            <tr><td>Storage, cleanup, cameras, misc.</td><td class="n">$8,990</td></tr>
+            <tr><td>Carpentry</td><td class="n">$6,978</td></tr>
+            <tr><td>Basement vapor barrier &amp; gravel</td><td class="n">$4,191</td></tr>
+            <tr><td>Window replacement</td><td class="n">$3,950</td></tr>
+            <tr><td>Laundry machines</td><td class="n">$2,080</td></tr>
+            <tr><td>Chimney removal</td><td class="n">$2,047</td></tr>
+            <tr><td>Plumbing</td><td class="n">$1,509</td></tr>
+            <tr class="total"><td>Total</td><td class="n">$90,809</td></tr>
           </tbody>
         </table>
       </div>
@@ -572,9 +589,9 @@
   </div>
 
   <footer>
-    <b>Note 1 &mdash; vacancy.</b> The owner&rsquo;s model applies no vacancy or collection loss. All four units are occupied and 57A is paid in full by Berkshire Housing, but the appraiser should apply a market vacancy factor. At 5%, in-place NOI falls to $17,960 and stabilized NOI to $41,501.<br>
-    <b>To be confirmed on inspection:</b> gross living area, unit-level bed and bath counts, comparable sale dates and unit counts, lot area and zoning, and the fourth lead certificate.<br>
-    <b>Basis of preparation:</b> figures are owner-maintained operating records as of September 3, 2026. Stabilized rents are the owner&rsquo;s post-renovation targets and are not contracted. This brief is offered as source data for an independent appraisal; it is not an opinion of value.
+    <b>Note 1 &mdash; rent basis.</b> The rent roll states market rent of $1,500 per unit following completion of the 2026 renovation. Executed leases and their effective dates should be attached; where a unit has not yet turned over at the stated rent, the figure is market rent rather than contract rent and the appraiser will underwrite it as such.<br>
+    <b>To be confirmed on inspection:</b> lease documents and effective dates, unit-level bed and bath counts, comparable sale dates and unit counts, lot area, year built, and zoning.<br>
+    <b>Basis of preparation:</b> figures are owner-maintained operating records as of September 3, 2026. This brief is offered as source data for an independent appraisal; it is not an opinion of value.
   </footer>
 
 </div>
